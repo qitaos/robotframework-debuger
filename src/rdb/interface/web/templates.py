@@ -359,9 +359,6 @@ DEBUGER_TEMPLATE = """
                     <b>Debug status</b>
                     %(MESSAGES)s
                     <div>
-                    <b>Output MML:</b>
-                    <div class='mml_output'>${mml_output}</div>
-                    </div>
                 </td>
                 <td>
                     <b>Variables</b>

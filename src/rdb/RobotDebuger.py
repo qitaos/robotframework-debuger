@@ -123,7 +123,6 @@ class RobotDebuger(object):
         for e in self.settings.WATCHING_LIST:
             self.watch_variable(e)
             
-        self.__inject_ipamml_telnet_monitor()
         self.__set_case_status()
         self._exit_code = 0
         
@@ -191,19 +190,6 @@ class RobotDebuger(object):
                             datefmt='%m-%d %H:%M:%S',
                             filename=self.settings.LOGGING_FILE,
                             filemode='w')
-        
-    def __inject_ipamml_telnet_monitor(self):
-        """a hacker feature for monitor session of telnet in IpaMML,
-        """
-        import __main__
-        __main__.RDB_TELNET_HOOKER = TelentMonitorProxy(self)
-        if self.settings.MML_OUTPUT_FILE:
-            path = os.path.abspath(self.settings.MML_OUTPUT_FILE)
-            self.logger.info("dump telnet session to: %s" % path)
-            try:
-                self.add_telnet_monitor(FileMonitor(path))
-            except Exception, e:
-                self.logger.exception(e)
                 
     def __set_case_status(self):
         """output case status in file"""

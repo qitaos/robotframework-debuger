@@ -1,5 +1,5 @@
 #from setuptools import setup
-from setuptools import setup
+from distutils.core import setup
 from distutils.command.install_data import install_data
 from distutils.command.install import INSTALL_SCHEMES
 import os

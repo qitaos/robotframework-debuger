@@ -151,7 +151,6 @@ class WebHandler(BaseHTTPServer.BaseHTTPRequestHandler):
                               cur_varibles=cur_varibles,
                               refresh_interval=refresh_interval, 
                               session=self.server.sid,
-                              mml_output = rdb.telnetMonitor.buffer,
                               kw = self.params.get("kw", '')
                               )
         
